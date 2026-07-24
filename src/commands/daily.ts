@@ -8,10 +8,11 @@ export default {
     description: "Get your daily reward"
   },
 
-  async execute(interaction: ChatInputCommandInteraction) {
+async execute(interaction: ChatInputCommandInteraction) {
 
-    await interaction.deferReply();
+  console.log("DAILY STARTED");
 
+  await interaction.deferReply();
     let user = db.prepare(
       "SELECT * FROM users WHERE id = ?"
     ).get(interaction.user.id) as any;
