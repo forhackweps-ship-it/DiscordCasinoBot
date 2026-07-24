@@ -30,8 +30,3 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
         run: npm run deploy
-
-      - name: Start Bot
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
-        run: npm start
