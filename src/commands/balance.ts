@@ -17,10 +17,11 @@ export default {
 
     if (!user) {
       db.prepare(
-        "INSERT INTO users (id, balance) VALUES (?, ?)"
+        "INSERT INTO users (id, balance, lastDaily) VALUES (?, ?, ?)"
       ).run(
         interaction.user.id,
-        1000
+        1000,
+        0
       );
 
       user = {
