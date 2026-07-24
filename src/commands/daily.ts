@@ -1,4 +1,3 @@
-console.log("DAILY COMMAND WORKING");
 import { ChatInputCommandInteraction } from "discord.js";
 import db from "../database/db";
 
@@ -8,14 +7,14 @@ export default {
     description: "Get your daily reward"
   },
 
-async execute(interaction: ChatInputCommandInteraction) {
+  async execute(interaction: ChatInputCommandInteraction) {
 
-  console.log("DAILY STARTED");
+    await interaction.deferReply();
 
-  await interaction.deferReply();
     let user = db.prepare(
       "SELECT * FROM users WHERE id = ?"
     ).get(interaction.user.id) as any;
+
 
     if (!user) {
       db.prepare(
@@ -32,10 +31,14 @@ async execute(interaction: ChatInputCommandInteraction) {
       };
     }
 
+
     const now = Date.now();
+
     const cooldown = 24 * 60 * 60 * 1000;
 
+
     if (now - user.lastDaily < cooldown) {
+
       const hours = Math.ceil(
         (cooldown - (now - user.lastDaily)) / 3600000
       );
@@ -45,7 +48,9 @@ async execute(interaction: ChatInputCommandInteraction) {
       );
     }
 
+
     const reward = 500;
+
 
     db.prepare(
       "UPDATE users SET balance = balance + ?, lastDaily = ? WHERE id = ?"
@@ -55,8 +60,10 @@ async execute(interaction: ChatInputCommandInteraction) {
       interaction.user.id
     );
 
+
     await interaction.editReply(
       `🎁 You received ${reward} coins!`
     );
+
   }
 };
