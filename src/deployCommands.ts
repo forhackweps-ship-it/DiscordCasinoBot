@@ -2,10 +2,17 @@ import "dotenv/config";
 import { REST, Routes } from "discord.js";
 
 const commands = [
-  {
-    name: "ping",
-    description: "Check bot response"
-  }
+
+{
+name:"ping",
+description:"Check bot response"
+},
+
+{
+name:"balance",
+description:"Show your money"
+}
+
 ];
 
 const rest = new REST({version:"10"})
