@@ -7,6 +7,12 @@ export default {
   },
 
   async execute(interaction: ChatInputCommandInteraction) {
-    await interaction.reply("test 123");
+
+    await interaction.deferReply();
+
+    await interaction.editReply(
+      "💰 Your balance: 1000"
+    );
+
   }
 };
