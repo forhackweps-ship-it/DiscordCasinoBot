@@ -26,11 +26,12 @@ client.once("ready", () => {
 client.on("interactionCreate", async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
+  console.log("COMMAND:", interaction.commandName);
+
   const command = commands.get(interaction.commandName);
 
   if (!command) return;
 
   await command.execute(interaction);
 });
-
 client.login(process.env.TOKEN);
