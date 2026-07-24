@@ -17,6 +17,7 @@ const client = new Client({
 const commands = new Collection<string, any>();
 
 commands.set(ping.data.name, ping);
+commands.set(balance.data.name, balance);
 
 client.once("ready", () => {
   console.log(`${client.user?.tag} is online!`);
