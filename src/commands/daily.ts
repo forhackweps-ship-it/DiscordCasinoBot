@@ -1,3 +1,4 @@
+console.log("DAILY COMMAND WORKING");
 import { ChatInputCommandInteraction } from "discord.js";
 import db from "../database/db";
 
