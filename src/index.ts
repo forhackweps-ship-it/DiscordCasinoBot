@@ -8,7 +8,7 @@ const client = new Client({
   ]
 });
 
-const commands = new Collection();
+const commands = new Collection<string, any>();
 
 commands.set(ping.name, ping);
 
