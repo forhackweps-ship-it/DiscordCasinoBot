@@ -6,6 +6,7 @@ import {
 } from "discord.js";
 
 import ping from "./commands/ping";
+import balance from "./commands/balance";
 
 const client = new Client({
   intents: [
