@@ -23,7 +23,7 @@ commands.set(balance.data.name, balance);
 commands.set(daily.data.name, daily);
 
 client.once("ready", () => {
-  console.log(`${client.user?.tag} is online!`);
+console.log(`${client.user?.tag} is online! DAILY VERSION`);
 });
 
 client.on("interactionCreate", async interaction => {
