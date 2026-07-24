@@ -7,6 +7,7 @@ import {
 
 import ping from "./commands/ping";
 import balance from "./commands/balance";
+import daily from "./commands/daily";
 
 const client = new Client({
   intents: [
@@ -18,6 +19,7 @@ const commands = new Collection<string, any>();
 
 commands.set(ping.data.name, ping);
 commands.set(balance.data.name, balance);
+commands.set(daily.data.name, daily);
 
 client.once("ready", () => {
   console.log(`${client.user?.tag} is online!`);
